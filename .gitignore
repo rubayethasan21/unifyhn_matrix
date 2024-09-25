@@ -3,81 +3,36 @@ __pycache__/
 *.py[cod]
 *$py.class
 
-# C extensions
-*.so
+# Virtual environment
+matrix-env/
 
-# Virtual environment directories
-env/
-venv/
-ENV/
-venv.bak/
-env.bak/
-.venv/
+# Synapse database files
+homeserver.db
+homeserver.db-shm
+homeserver.db-wal
 
-# Distribution / packaging
-.Python
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-*.egg-info/
-.installed.cfg
-*.egg
+# Synapse log files
+homeserver.log
+localhost.log.config
 
-# PyInstaller
-*.manifest
-*.spec
+# Synapse PID file
+homeserver.pid
 
-# Installer logs
-pip-log.txt
-pip-delete-this-directory.txt
+# Synapse signing key file
+localhost.signing.key
 
-# Unit test / coverage reports
-htmlcov/
-.tox/
-.nox/
-.coverage
-coverage.*
-.cache
-nosetests.xml
-coverage.xml
-*.cover
-*.py,cover
-.hypothesis/
+# Media storage (Synapse media files)
+media_store/
 
-# Jupyter Notebook
-.ipynb_checkpoints/
+# Configuration files (contains secrets)
+homeserver.yaml
 
-# pyenv
-.python-version
-
-# celery beat schedule file
-celerybeat-schedule
-
-# dotenv
-.env
-.env.*
-
-# Editor files
-.vscode/
-.idea/
-*.sublime-project
-*.sublime-workspace
-
-# PyCharm specific
-__pycache__/
-.idea/
-
-# macOS
-.DS_Store
-
-# Logs
+# Log files
 *.log
+
+# Temporary files
+*.tmp
+*.swp
+
+# System files
+.DS_Store
