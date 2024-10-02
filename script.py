@@ -6,15 +6,14 @@ import asyncio
 
 app = Quart(__name__)
 
-client = AsyncClient("http://localhost:8008", "@admin:localhost")
+client = AsyncClient("http://unifyhn.de", "@admin:unifyhn.de")
 password = "Hosting+12345"
-
 
 async def ensure_user_in_room(client, user_id, room_name):
     room_id = None
     # Fetch the list of joined rooms
     joined_rooms = await client.joined_rooms()
-
+    
     if joined_rooms.rooms:
         for room in joined_rooms.rooms:
             state = await client.room_get_state(room)
@@ -25,7 +24,7 @@ async def ensure_user_in_room(client, user_id, room_name):
                         break
             if room_id:
                 break
-
+    
     if room_id:
         # Room exists, invite the user to the room
         try:
@@ -54,7 +53,6 @@ async def ensure_user_in_room(client, user_id, room_name):
         except Exception as e:
             print(f"Error creating room {room_name} and inviting user {user_id}: {e}")
 
-
 @app.route('/add_user_to_rooms', methods=['POST'])
 async def add_user_to_rooms():
     data = await request.json
@@ -77,7 +75,6 @@ async def add_user_to_rooms():
         print(f"Error: {e}")
         return jsonify({"error": "Failed to add user to rooms"}), 500
 
-
 async def sync_loop(client):
     while True:
         await client.sync(timeout=30000)  # Sync every 30 seconds
@@ -98,15 +95,16 @@ async def main():
 
     asyncio.create_task(sync_loop(client))
 
-
 async def run_quart_app():
     print('Starting Quart app')
     await app.run_task(host='0.0.0.0', port=5000)
 
-
 async def start():
     await asyncio.gather(main(), run_quart_app())
 
-
 if __name__ == '__main__':
     asyncio.run(start())
+
+
+
+
