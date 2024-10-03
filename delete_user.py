@@ -36,8 +36,8 @@ def get_all_users(access_token):
     except requests.exceptions.RequestException as e:
         raise SystemExit(f"Error fetching user list: {e}")
 
-# Step 3: Delete a user by user_id
-def delete_user(access_token, user_id):
+# Step 3: Deactivate a user by user_id
+def deactivate_user(access_token, user_id):
     url = f"{server_url}/_synapse/admin/v1/deactivate/{user_id}"
     headers = {
         "Authorization": f"Bearer {access_token}",
@@ -46,11 +46,25 @@ def delete_user(access_token, user_id):
     try:
         response = requests.post(url, headers=headers)
         response.raise_for_status()
-        print(f"User {user_id} deleted successfully.")
+        print(f"User {user_id} deactivated successfully.")
     except requests.exceptions.RequestException as e:
-        print(f"Error deleting user {user_id}: {e}")
+        print(f"Error deactivating user {user_id}: {e}")
 
-# Step 4: Main function to delete all users except the admin
+# Step 4: Erase a user by user_id (using the correct purge URL)
+def erase_user(access_token, user_id):
+    url = f"{server_url}/_synapse/admin/v1/users/{user_id}/erase"
+    headers = {
+        "Authorization": f"Bearer {access_token}",
+        "Content-Type": "application/json"
+    }
+    try:
+        response = requests.post(url, headers=headers)  # Corrected to POST request
+        response.raise_for_status()
+        print(f"User {user_id} erased successfully.")
+    except requests.exceptions.RequestException as e:
+        print(f"Error erasing user {user_id}: {e}")
+
+# Step 5: Main function to delete all users except the admin
 def delete_all_users_except_admin(admin_username, admin_password):
     access_token = login_as_admin(admin_username, admin_password)
 
@@ -63,7 +77,8 @@ def delete_all_users_except_admin(admin_username, admin_password):
         user_id = user["name"]
         if user_id != f"@{admin_username}:localhost":  # Avoid deleting the admin user
             print(f"Deleting user: {user_id}")
-            delete_user(access_token, user_id)
+            deactivate_user(access_token, user_id)  # Step 3: Deactivate the user first
+            #erase_user(access_token, user_id)  # Step 4: Erase the user after deactivation
         else:
             print(f"Skipping admin user: {user_id}")
 

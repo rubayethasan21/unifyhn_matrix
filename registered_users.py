@@ -7,7 +7,7 @@ server_url = "http://localhost:8080"  # Update if using a different server URL
 admin_token = "syt_YWRtaW4_wBrVxgtcuwfqixPGwQWS_3qUMJc"  # remote
 
 
-# Step 1: Fetch the list of registered users
+# Step 1: Fetch the list of registered users with pagination support
 def get_registered_users():
     # Define the URL for the admin API to list users
     url = f"{server_url}/_synapse/admin/v2/users"
@@ -17,17 +17,40 @@ def get_registered_users():
         "Authorization": f"Bearer {admin_token}"
     }
 
-    try:
-        # Send the GET request to the server
-        response = requests.get(url, headers=headers)
-        response.raise_for_status()  # Check if the request was successful
+    users = []  # To hold all users
+    next_token = None  # Pagination token
 
-        # Parse the response as JSON
-        users = response.json()
+    try:
+        while True:
+            # Append pagination token if available
+            paginated_url = url
+            if next_token:
+                paginated_url += f"?from={next_token}"
+
+            # Send the GET request to the server
+            response = requests.get(paginated_url, headers=headers)
+            response.raise_for_status()  # Check if the request was successful
+
+            # Debug: Print the raw response
+            print(f"Raw response: {response.content.decode()}")
+
+            # Parse the response as JSON
+            data = response.json()
+
+            # Debug: Print the parsed JSON data
+            print(f"Parsed response: {data}")
+
+            # Add users to the list
+            users.extend(data['users'])
+
+            # Check if there is a next token (pagination)
+            next_token = data.get('next_token')
+            if not next_token:
+                break  # Exit the loop if there are no more pages
 
         # Print the list of users for debugging
-        print(f"Total Users Found: {users['total']}")
-        for user in users['users']:
+        print(f"Total Users Found: {len(users)}")
+        for user in users:
             print(f"User ID: {user['name']}, Admin: {user['admin']}, Displayname: {user.get('displayname', 'N/A')}")
 
         # Return the users data

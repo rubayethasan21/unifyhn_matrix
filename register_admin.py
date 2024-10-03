@@ -11,7 +11,7 @@ shared_secret = "V3EIxdN5=J5cWv+RJ74RG#14QWpFj:O,_60Yed:+PoztoSC20X"  # remote
 # Admin user details
 username = "admin"  # Replace with the desired username
 password = "Hosting+12345"  # Replace with the desired password
-displayname = "Admin User"  # Replace with the desired display name
+displayname = username  # Replace with the desired display name
 
 
 # Step 1: Get the nonce from the Matrix server

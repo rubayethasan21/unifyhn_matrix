@@ -4,14 +4,16 @@ import requests
 
 # Synapse server details
 server_url = "http://localhost:8080"  # Update if using a different server URL
-#shared_secret = "SP;j&7cAKeqqjtQS2fk1W#ejuiT:G&uaggV&E,;g8Mx:1Xl#^X"  # local
+shared_secret = "SP;j&7cAKeqqjtQS2fk1W#ejuiT:G&uaggV&E,;g8Mx:1Xl#^X"  # local
 shared_secret = "V3EIxdN5=J5cWv+RJ74RG#14QWpFj:O,_60Yed:+PoztoSC20X"  # remote
 
+#admin_token = "syt_YWRtaW4_gDLlUrSzulYzGubIsdFK_16BvZV"  # local
+admin_token = "syt_YWRtaW4_wBrVxgtcuwfqixPGwQWS_3qUMJc"  # remote
 
 # Normal user details (ensure no domain part in the username)
-username = "alexander.jesser"  # Username without domain
-password = "Hosting+12345"  # Replace with the desired password
-displayname = "alexander.jesser"  # Display name can be any string
+username = "rubayet.hasan3"  # Username without domain
+password = "Hosting+12345"  # Rregister_user.pyeplace with the desired password
+displayname = username  # Display name can be any string
 
 
 # Step 1: Get the nonce from the Matrix server
@@ -64,22 +66,41 @@ def register_user(nonce, username, password, hmac_value, displayname):
             print(f"Response content: {response.content.decode()}")
         raise SystemExit(f"Error registering user: {e}")
 
+def check_if_user_exists(username):
+    url = f"{server_url}/_synapse/admin/v2/users/{username}"
+    headers = {
+        "Authorization": f"Bearer {admin_token}"  # Ensure this admin_token is valid
+    }
+    try:
+        response = requests.get(url, headers=headers)
+        if response.status_code == 200:
+            print(f"User {username} already exists.")
+            return True
+        else:
+            return False
+    except requests.exceptions.RequestException as e:
+        print(f"Error checking user existence: {e}")
+        return False
 
 if __name__ == "__main__":
     try:
-        # Step 1: Get the nonce from the server
-        print("Step 1: Getting nonce from the server...")
-        nonce = get_nonce()
-        print(f"Nonce received: {nonce}")
+        # Step 1: Check if user already exists
+        if check_if_user_exists(f"@{username}:localhost"):
+            print(f"User {username} is already registered.")
+        else:
+            # Step 1: Get the nonce from the server
+            print("Step 1: Getting nonce from the server...")
+            nonce = get_nonce()
+            print(f"Nonce received: {nonce}")
 
-        # Step 2: Generate the HMAC for registration
-        print("Step 2: Generating HMAC for registration...")
-        hmac_value = generate_hmac_sha1(nonce, username, password, shared_secret, is_admin=False)
-        print(f"HMAC: {hmac_value}")
+            # Step 2: Generate the HMAC for registration
+            print("Step 2: Generating HMAC for registration...")
+            hmac_value = generate_hmac_sha1(nonce, username, password, shared_secret, is_admin=False)
+            print(f"HMAC: {hmac_value}")
 
-        # Step 3: Register the user
-        print("Step 3: Registering normal user...")
-        register_user(nonce, username, password, hmac_value, displayname)
+            # Step 3: Register the user
+            print("Step 3: Registering normal user...")
+            register_user(nonce, username, password, hmac_value, displayname)
 
     except Exception as e:
         print(f"Error: {e}")
