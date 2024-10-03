@@ -7,7 +7,7 @@ server_url = "http://localhost:8080"  # Update if using a different server URL
 admin_token = "syt_YWRtaW4_wBrVxgtcuwfqixPGwQWS_3qUMJc"  # remote
 
 # User credentials
-user_id = "@alexander.jesser:localhost"  # Replace with the user you want to reactivate
+user_id = "@rubayet.hasan:localhost"  # Replace with the user you want to reactivate
 new_password = "12345"  # Set a new password for the user
 
 # Step 1: Reactivate the user by setting 'deactivated' to 'false'
