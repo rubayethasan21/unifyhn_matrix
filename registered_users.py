@@ -3,7 +3,8 @@ import json
 
 # Synapse server details
 server_url = "http://localhost:8080"  # Update if using a different server URL
-admin_token = "syt_YWRtaW4_gDLlUrSzulYzGubIsdFK_16BvZV"  # Replace with the admin access token
+#admin_token = "syt_YWRtaW4_gDLlUrSzulYzGubIsdFK_16BvZV"  # local
+admin_token = "syt_YWRtaW4_wBrVxgtcuwfqixPGwQWS_3qUMJc"  # remote
 
 
 # Step 1: Fetch the list of registered users
