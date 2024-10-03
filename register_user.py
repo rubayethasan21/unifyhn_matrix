@@ -11,7 +11,7 @@ shared_secret = "V3EIxdN5=J5cWv+RJ74RG#14QWpFj:O,_60Yed:+PoztoSC20X"  # remote
 admin_token = "syt_YWRtaW4_wBrVxgtcuwfqixPGwQWS_3qUMJc"  # remote
 
 # Normal user details (ensure no domain part in the username)
-username = "rubayet.hasan3"  # Username without domain
+username = "rubayet.hasan"  # Username without domain
 password = "Hosting+12345"  # Rregister_user.pyeplace with the desired password
 displayname = username  # Display name can be any string
 
