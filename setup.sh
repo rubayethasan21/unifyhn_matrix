@@ -7,7 +7,7 @@ set -e
 VENV_DIR="matrix-env"
 CONFIG_FILE="homeserver.yaml"
 DOMAIN="localhost"
-CUSTOM_PORT=8080  # Set custom port to 8080
+CUSTOM_PORT=8081  # Set custom port to 8081
 
 # Step 1: Install Python3 and virtualenv if not installed
 if ! command -v python3 &> /dev/null
@@ -67,7 +67,7 @@ with open(config_file, "r") as file:
 config["enable_registration"] = True
 config["enable_registration_without_verification"] = True
 
-# Update listeners to use port 8080
+# Update listeners to use port 8081
 for listener in config["listeners"]:
     if listener["type"] == "http":
         listener["port"] = port
