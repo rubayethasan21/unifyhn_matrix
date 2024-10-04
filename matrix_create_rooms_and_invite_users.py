@@ -12,7 +12,7 @@ username = "rubayet.hasan"  # Replace with actual username
 password = "12345"  # Replace with actual password
 
 # Room details
-room_name = "unifyhn-room-1"  # The desired room name
+room_name = "unifyhn-room-2"  # The desired room name
 room_topic = "This is a test room created via API"  # Room topic
 
 # Predefined list of users to be invited (Matrix user IDs)
