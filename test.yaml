@@ -1,0 +1,33 @@
+database:
+  args:
+    database: /var/www/unifyhn_matrix/homeserver.db
+  name: sqlite3
+enable_registration: true
+enable_registration_without_verification: true
+enable_admin_api: true
+ratelimiting:
+  enabled: false
+form_secret: zboz5JhTXeG2WcT5^D*a#ri_4B5e^Jn93tbzgiGFQ6wZK=njV~
+listeners:
+- bind_addresses:
+    - 0.0.0.0
+  port: 8081
+  resources:
+  - compress: false
+    names:
+    - client
+    - federation
+  tls: false
+  type: http
+  x_forwarded: true
+log_config: /var/www/unifyhn_matrix/localhost.log.config
+macaroon_secret_key: 1zOY48-8c-Wn.a8mvz^&~yILo6*MI7094MzYWAJ4^~JdAybuT,
+media_store_path: /var/www/unifyhn_matrix/media_store
+pid_file: /var/www/unifyhn_matrix/homeserver.pid
+registration_shared_secret: ',D+V@s@p&eIjPy0Cp89=7*43_w;cUXOYIJ8e:6=U3rcM0:IUdw'
+report_stats: false
+server_name: 85.215.118.180
+signing_key_path: /var/www/unifyhn_matrix/localhost.signing.key
+trusted_key_servers:
+- server_name: matrix.org
+

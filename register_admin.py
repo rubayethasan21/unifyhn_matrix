@@ -7,7 +7,8 @@ import requests
 #server_url = "http://localhost:8080"  # local
 server_url = "http://85.215.118.180:8081" #remote
 #shared_secret = "SP;j&7cAKeqqjtQS2fk1W#ejuiT:G&uaggV&E,;g8Mx:1Xl#^X"  # local
-shared_secret = "',D+V@s@p&eIjPy0Cp89=7*43_w;cUXOYIJ8e:6=U3rcM0:IUdw'"  # remote
+#shared_secret = "',D+V@s@p&eIjPy0Cp89=7*43_w;cUXOYIJ8e:6=U3rcM0:IUdw'"  # remote
+shared_secret = ",D+V@s@p&eIjPy0Cp89=7*43_w;cUXOYIJ8e:6=U3rcM0:IUdw"  # remote
 
 # Admin user details
 username = "admin"  # Replace with the desired username
