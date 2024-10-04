@@ -8,7 +8,6 @@ domain_name ="85.215.118.180" #remote
 server_url = "http://"+domain_name+":8081"
 
 # Admin user credentials (must be an admin)
-#admin_username = "admin"  # Replace with actual admin username
 admin_username = "admin"  # Replace with actual admin username
 admin_password = "12345"  # Replace with actual admin password
 

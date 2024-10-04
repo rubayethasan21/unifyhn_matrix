@@ -1,13 +1,20 @@
 import requests
 
+#domain_name ="localhost" #local
+domain_name ="85.215.118.180" #remote
+
 # Synapse server details
-server_url = "http://localhost:8080"  # Update if using a different server URL
-#shared_secret = "SP;j&7cAKeqqjtQS2fk1W#ejuiT:G&uaggV&E,;g8Mx:1Xl#^X"  # local
-shared_secret = "V3EIxdN5=J5cWv+RJ74RG#14QWpFj:O,_60Yed:+PoztoSC20X"  # remote
+server_url = "http://"+domain_name+":8081"
+
+
+if domain_name == "localhost":
+    shared_secret = "SP;j&7cAKeqqjtQS2fk1W#ejuiT:G&uaggV&E,;g8Mx:1Xl#^X"  # local
+else:
+    shared_secret = ",D+V@s@p&eIjPy0Cp89=7*43_w;cUXOYIJ8e:6=U3rcM0:IUdw"  # remote
 
 # Admin credentials
 admin_username = "admin"  # Admin username
-admin_password = "Hosting+12345"  # Admin password
+admin_password = "12345"  # Admin password
 
 # Step 1: Login as admin and get access token
 def login_as_admin(username, password):
@@ -75,7 +82,7 @@ def delete_all_users_except_admin(admin_username, admin_password):
 
     for user in users:
         user_id = user["name"]
-        if user_id != f"@{admin_username}:localhost":  # Avoid deleting the admin user
+        if user_id != f"@{admin_username}:"+domain_name:  # Avoid deleting the admin user
             print(f"Deleting user: {user_id}")
             deactivate_user(access_token, user_id)  # Step 3: Deactivate the user first
             #erase_user(access_token, user_id)  # Step 4: Erase the user after deactivation

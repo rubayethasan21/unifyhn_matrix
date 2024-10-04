@@ -1,16 +1,20 @@
 import requests
 import json
 
+#domain_name ="localhost" #local
+domain_name ="85.215.118.180" #remote
+
 # Synapse server details
-#server_url = "http://localhost:8080"  # local
-#admin_token = "syt_YWRtaW4_gDLlUrSzulYzGubIsdFK_16BvZV"  # local
+server_url = "http://"+domain_name+":8081"
 
 
-server_url = "http://85.215.118.180:8081" #remote
-admin_token = "syt_YWRtaW4_IUidRwSYKEDruVSBYNXn_4HVIYN"  # remote
+if domain_name == "localhost":
+    admin_token = "syt_YWRtaW4_gDLlUrSzulYzGubIsdFK_16BvZV"  # local
+else:
+    admin_token = "syt_YWRtaW4_IUidRwSYKEDruVSBYNXn_4HVIYN"  # remote
 
 # User credentials
-user_id = "@rubayet.hasan:localhost"  # Replace with the user you want to reactivate
+user_id = "@rubayet.hasan:"+domain_name  # Replace with the user you want to reactivate
 new_password = "12345"  # Set a new password for the user
 
 # Step 1: Reactivate the user by setting 'deactivated' to 'false'

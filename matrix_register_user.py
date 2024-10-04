@@ -2,14 +2,19 @@ import hmac
 import hashlib
 import requests
 
-# Synapse server details
-#server_url = "http://localhost:8080"  # local
-#shared_secret = "SP;j&7cAKeqqjtQS2fk1W#ejuiT:G&uaggV&E,;g8Mx:1Xl#^X"  # local
-#admin_token = "syt_YWRtaW4_gDLlUrSzulYzGubIsdFK_16BvZV"  # local
 
-server_url = "http://85.215.118.180:8081" #remote
-shared_secret = ",D+V@s@p&eIjPy0Cp89=7*43_w;cUXOYIJ8e:6=U3rcM0:IUdw"  # remote
-admin_token = "syt_YWRtaW4_IUidRwSYKEDruVSBYNXn_4HVIYN"  # remote
+#domain_name ="localhost" #local
+domain_name ="85.215.118.180" #remote
+
+# Synapse server details
+server_url = "http://"+domain_name+":8081"
+
+if domain_name == "localhost":
+    shared_secret = "SP;j&7cAKeqqjtQS2fk1W#ejuiT:G&uaggV&E,;g8Mx:1Xl#^X"  # local
+    admin_token = "syt_YWRtaW4_gDLlUrSzulYzGubIsdFK_16BvZV"  # local
+else:
+    shared_secret = ",D+V@s@p&eIjPy0Cp89=7*43_w;cUXOYIJ8e:6=U3rcM0:IUdw"  # remote
+    admin_token = "syt_YWRtaW4_IUidRwSYKEDruVSBYNXn_4HVIYN"  # remote
 
 # Normal user details (ensure no domain part in the username)
 username = "alexander.jesser"  # Username without domain

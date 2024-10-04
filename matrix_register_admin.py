@@ -3,12 +3,17 @@ import hashlib
 import base64
 import requests
 
+
+#domain_name ="localhost" #local
+domain_name ="85.215.118.180" #remote
+
 # Synapse server details
-#server_url = "http://localhost:8080"  # local
-server_url = "http://85.215.118.180:8081" #remote
-#shared_secret = "SP;j&7cAKeqqjtQS2fk1W#ejuiT:G&uaggV&E,;g8Mx:1Xl#^X"  # local
-#shared_secret = "',D+V@s@p&eIjPy0Cp89=7*43_w;cUXOYIJ8e:6=U3rcM0:IUdw'"  # remote
-shared_secret = ",D+V@s@p&eIjPy0Cp89=7*43_w;cUXOYIJ8e:6=U3rcM0:IUdw"  # remote
+server_url = "http://"+domain_name+":8081"
+
+if domain_name == "localhost":
+    shared_secret = "SP;j&7cAKeqqjtQS2fk1W#ejuiT:G&uaggV&E,;g8Mx:1Xl#^X"  # local
+else:
+    shared_secret = ",D+V@s@p&eIjPy0Cp89=7*43_w;cUXOYIJ8e:6=U3rcM0:IUdw"  # remote
 
 # Admin user details
 username = "admin"  # Replace with the desired username

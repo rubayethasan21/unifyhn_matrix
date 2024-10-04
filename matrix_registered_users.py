@@ -1,12 +1,18 @@
 import requests
 import json
 
-# Synapse server details
-#server_url = "http://localhost:8080"  # local
-#admin_token = "syt_YWRtaW4_gDLlUrSzulYzGubIsdFK_16BvZV"  # local
 
-server_url = "http://85.215.118.180:8081" #remote
-admin_token = "syt_YWRtaW4_IUidRwSYKEDruVSBYNXn_4HVIYN"  # remote
+
+#domain_name ="localhost" #local
+domain_name ="85.215.118.180" #remote
+
+# Synapse server details
+server_url = "http://"+domain_name+":8081"
+
+if domain_name == "localhost":
+    admin_token = "syt_YWRtaW4_gDLlUrSzulYzGubIsdFK_16BvZV"  # local
+else:
+    admin_token = "syt_YWRtaW4_IUidRwSYKEDruVSBYNXn_4HVIYN"  # remote
 
 
 # Step 1: Fetch the list of registered users with pagination support
