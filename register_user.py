@@ -3,16 +3,17 @@ import hashlib
 import requests
 
 # Synapse server details
-server_url = "http://localhost:8080"  # Update if using a different server URL
-shared_secret = "SP;j&7cAKeqqjtQS2fk1W#ejuiT:G&uaggV&E,;g8Mx:1Xl#^X"  # local
-shared_secret = "V3EIxdN5=J5cWv+RJ74RG#14QWpFj:O,_60Yed:+PoztoSC20X"  # remote
-
+#server_url = "http://localhost:8080"  # local
+#shared_secret = "SP;j&7cAKeqqjtQS2fk1W#ejuiT:G&uaggV&E,;g8Mx:1Xl#^X"  # local
 #admin_token = "syt_YWRtaW4_gDLlUrSzulYzGubIsdFK_16BvZV"  # local
-admin_token = "syt_YWRtaW4_wBrVxgtcuwfqixPGwQWS_3qUMJc"  # remote
+
+server_url = "http://85.215.118.180:8081" #remote
+shared_secret = ",D+V@s@p&eIjPy0Cp89=7*43_w;cUXOYIJ8e:6=U3rcM0:IUdw"  # remote
+admin_token = "syt_YWRtaW4_IUidRwSYKEDruVSBYNXn_4HVIYN"  # remote
 
 # Normal user details (ensure no domain part in the username)
 username = "rubayet.hasan"  # Username without domain
-password = "Hosting+12345"  # Rregister_user.pyeplace with the desired password
+password = "12345"  # Rregister_user.pyeplace with the desired password
 displayname = username  # Display name can be any string
 
 
