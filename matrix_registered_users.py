@@ -10,7 +10,7 @@ domain_name ="85.215.118.180" #remote
 server_url = "http://"+domain_name+":8081"
 
 if domain_name == "localhost":
-    admin_token = "syt_YWRtaW4_gDLlUrSzulYzGubIsdFK_16BvZV"  # local
+    admin_token = "syt_YWRtaW4_BoYmJTstrEpKiJlsyiCz_0KmfUR"  # local
 else:
     admin_token = "syt_YWRtaW4_IUidRwSYKEDruVSBYNXn_4HVIYN"  # remote
 
