@@ -6,7 +6,7 @@ server_url = "http://localhost:8080"  # Update if using a different server URL
 
 # User credentials
 username = "rubayet.hasan"  # Replace with actual username
-password = "Hosting+12345"  # Replace with actual password
+password = "12345"  # Replace with actual password
 
 
 # Step 1: Login to the Matrix server to obtain access token

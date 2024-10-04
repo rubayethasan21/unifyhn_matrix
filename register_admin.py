@@ -6,11 +6,11 @@ import requests
 # Synapse server details
 server_url = "http://localhost:8080"  # Update if using a different server URL
 #shared_secret = "SP;j&7cAKeqqjtQS2fk1W#ejuiT:G&uaggV&E,;g8Mx:1Xl#^X"  # local
-shared_secret = "V3EIxdN5=J5cWv+RJ74RG#14QWpFj:O,_60Yed:+PoztoSC20X"  # remote
+shared_secret = "',D+V@s@p&eIjPy0Cp89=7*43_w;cUXOYIJ8e:6=U3rcM0:IUdw'"  # remote
 
 # Admin user details
 username = "admin"  # Replace with the desired username
-password = "Hosting+12345"  # Replace with the desired password
+password = "12345"  # Replace with the desired password
 displayname = username  # Replace with the desired display name
 
 
