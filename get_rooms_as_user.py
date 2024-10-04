@@ -1,8 +1,11 @@
 import requests
 import json
 
+#domain_name ="localhost" #local
+domain_name ="85.215.118.180" #remote
+
 # Synapse server details
-server_url = "http://localhost:8080"  # Update if using a different server URL
+server_url = "http://"+domain_name+":8081"
 
 # User credentials
 username = "rubayet.hasan"  # Replace with actual username
