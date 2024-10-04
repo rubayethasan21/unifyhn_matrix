@@ -4,7 +4,7 @@ import base64
 import requests
 
 # Synapse server details
-server_url = "http://localhost:8080"  # Update if using a different server URL
+server_url = "http://localhost:8081"  # Update if using a different server URL
 #shared_secret = "SP;j&7cAKeqqjtQS2fk1W#ejuiT:G&uaggV&E,;g8Mx:1Xl#^X"  # local
 shared_secret = "',D+V@s@p&eIjPy0Cp89=7*43_w;cUXOYIJ8e:6=U3rcM0:IUdw'"  # remote
 
