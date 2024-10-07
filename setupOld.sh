@@ -6,8 +6,8 @@ set -e
 # Define variables
 VENV_DIR="matrix-env"
 CONFIG_FILE="homeserver.yaml"
-DOMAIN="unifyhn.de"  # Use your actual domain name
-CUSTOM_PORT=8081  # Custom port to run Synapse on
+DOMAIN="localhost"
+CUSTOM_PORT=8081  # Set custom port to 8081
 
 # Step 1: Install Python3 and virtualenv if not installed
 if ! command -v python3 &> /dev/null
@@ -67,20 +67,16 @@ with open(config_file, "r") as file:
 config["enable_registration"] = True
 config["enable_registration_without_verification"] = True
 
-# Update listeners to use port 8081 and bind to 0.0.0.0 for external access
+# Update listeners to use port 8081
 for listener in config["listeners"]:
     if listener["type"] == "http":
         listener["port"] = port
-        listener["bind_addresses"] = ["0.0.0.0"]
-
-# Set the server name to unifyhn.de
-config["server_name"] = "unifyhn.de"
 
 # Save changes back to the YAML file
 with open(config_file, "w") as file:
     yaml.dump(config, file)
 
-print(f"Updated {config_file}: enable_registration, set port to {port}, and domain to unifyhn.de")
+print(f"Updated {config_file}: enable_registration and port set to {port}")
 EOF
 
 # Step 7: Restart the Matrix Synapse server
