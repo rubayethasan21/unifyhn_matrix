@@ -1,26 +1,25 @@
 import requests
 import json
 
-#domain_name = "localhost"  # local
-domain_name = "85.215.118.180"  # remote
+domain_name ="localhost" #local
+#domain_name ="85.215.118.180" #remote
 
 # Synapse server details
-server_url = "http://" + domain_name + ":8081"
+server_url = "http://"+domain_name+":8081"
 
 # User credentials
 username = "rubayet.hasan"  # Replace with actual username
 password = "12345"  # Replace with actual password
 
 # Room details
-room_name = "unifyhn-room-3"  # The desired room name
+room_name = "unifyhn-room-2"  # The desired room name
 room_topic = "This is a test room created via API"  # Room topic
 
 # Predefined list of users to be invited (Matrix user IDs)
 user_list = [
-    "@markus.speidel:" + domain_name,
-    "@arpita.sarker:" + domain_name,
-    "@alexander.jesser:" + domain_name,
-    "@test.test:" + domain_name,
+    "@markus.speidel:"+domain_name,
+    "@arpita.sarker:"+domain_name,
+    "@alexander.jesser:"+domain_name,
 ]
 
 
@@ -54,53 +53,7 @@ def login(username, password):
         return None, None
 
 
-# Step 2: Get the list of joined rooms
-def get_joined_rooms(access_token):
-    url = f"{server_url}/_matrix/client/r0/joined_rooms"
-
-    headers = {
-        "Authorization": f"Bearer {access_token}",
-        "Content-Type": "application/json"
-    }
-
-    try:
-        # Send the request to get the joined rooms
-        response = requests.get(url, headers=headers)
-        response.raise_for_status()
-
-        # Return the list of room IDs the user has joined
-        return response.json().get("joined_rooms", [])
-    except requests.exceptions.RequestException as e:
-        print(f"Error getting joined rooms: {e}")
-        return []
-
-
-# Step 3: Check if a room with the desired name exists
-def find_room_by_name(access_token, room_name):
-    joined_rooms = get_joined_rooms(access_token)
-
-    for room_id in joined_rooms:
-        url = f"{server_url}/_matrix/client/r0/rooms/{room_id}/state/m.room.name"
-
-        headers = {
-            "Authorization": f"Bearer {access_token}",
-            "Content-Type": "application/json"
-        }
-
-        try:
-            response = requests.get(url, headers=headers)
-            if response.status_code == 200:
-                room_state = response.json()
-                if room_state.get("name") == room_name:
-                    print(f"Room '{room_name}' already exists with ID: {room_id}")
-                    return room_id
-        except requests.exceptions.RequestException:
-            pass
-
-    return None
-
-
-# Step 4: Create a new room
+# Step 2: Create a new room
 def create_room(access_token, room_name, room_topic):
     url = f"{server_url}/_matrix/client/r0/createRoom"
 
@@ -130,7 +83,7 @@ def create_room(access_token, room_name, room_topic):
         return None
 
 
-# Step 5: Invite users to the room
+# Step 3: Invite users to the room
 def invite_users_to_room(access_token, room_id, user_list):
     url = f"{server_url}/_matrix/client/r0/rooms/{room_id}/invite"
 
@@ -153,7 +106,7 @@ def invite_users_to_room(access_token, room_id, user_list):
             print(f"Error inviting {user}: {e}")
 
 
-# Step 6: Log out the user
+# Step 4: Log out the user
 def logout(access_token):
     url = f"{server_url}/_matrix/client/r0/logout"
 
@@ -179,20 +132,15 @@ if __name__ == "__main__":
         print("Failed to login. Exiting...")
         exit()
 
-    # Step 2: Check if the room exists
-    room_id = find_room_by_name(access_token, room_name)
-
-    # Step 3: If the room doesn't exist, create a new room
-    if not room_id:
-        print(f"Room '{room_name}' does not exist. Creating a new one...")
-        room_id = create_room(access_token, room_name, room_topic)
+    # Step 2: Create a new room
+    room_id = create_room(access_token, room_name, room_topic)
 
     if not room_id:
         print("Failed to create room. Exiting...")
         exit()
 
-    # Step 4: Invite the predefined list of users to the room
+    # Step 3: Invite the predefined list of users to the room
     invite_users_to_room(access_token, room_id, user_list)
 
-    # Step 5: Log out the user
+    # Step 4: Log out the user
     logout(access_token)
