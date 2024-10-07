@@ -5,15 +5,17 @@ import requests
 
 
 #domain_name ="localhost" #local
-domain_name ="85.215.118.180" #remote
+domain_name ="unifyhn.de" #remote
+#domain_name ="85.215.118.180" #remote
 
 # Synapse server details
-server_url = "http://"+domain_name+":8081"
+server_url = "https://"+domain_name+":8081"
 
 if domain_name == "localhost":
     shared_secret = "vr#+UUi6K:+xrJ0y2wO1GWp5#FkrHvSQ3hz.v0-ET=dq,M._Z2"  # local
 else:
-    shared_secret = ",D+V@s@p&eIjPy0Cp89=7*43_w;cUXOYIJ8e:6=U3rcM0:IUdw"  # remote
+    #shared_secret = ",D+V@s@p&eIjPy0Cp89=7*43_w;cUXOYIJ8e:6=U3rcM0:IUdw"  # remote with ip
+    shared_secret = "PbBN~4qTF:hF:w@E*azkup+:@P4jxBr:^tfnyGFz:Jo8Y~i^g:"  # remote with domain name
 
 # Admin user details
 username = "admin"  # Replace with the desired username
