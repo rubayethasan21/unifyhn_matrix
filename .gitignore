@@ -36,3 +36,13 @@ homeserver.yaml
 
 # System files
 .DS_Store
+
+unifyhn.de.signing.key
+unifyhn.de.log.config
+
+*signing.key
+*log.config
+
+*.key
+*.config
+
