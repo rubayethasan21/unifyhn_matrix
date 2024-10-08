@@ -15,7 +15,7 @@ if domain_name == "localhost":
     admin_token = "syt_YWRtaW4_BoYmJTstrEpKiJlsyiCz_0KmfUR"  # local
 else:
     #shared_secret = ",D+V@s@p&eIjPy0Cp89=7*43_w;cUXOYIJ8e:6=U3rcM0:IUdw"  # remote 1
-    admin_token = "syt_YWRtaW4_IUidRwSYKEDruVSBYNXn_4HVIYN"  # remote 1
+    #admin_token = "syt_YWRtaW4_IUidRwSYKEDruVSBYNXn_4HVIYN"  # remote 1
 
     shared_secret = "PbBN~4qTF:hF:w@E*azkup+:@P4jxBr:^tfnyGFz:Jo8Y~i^g:"  # remote with domain name
     admin_token = "syt_YWRtaW4_pDqKemFJfJAZRxQbDrKu_28RF6a"  # remote 2

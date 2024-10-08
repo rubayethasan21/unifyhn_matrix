@@ -2,10 +2,12 @@ import requests
 import json
 
 #domain_name ="localhost" #local
-domain_name ="85.215.118.180" #remote
+domain_name ="unifyhn.de" #remote
+#domain_name ="85.215.118.180" #remote
 
 # Synapse server details
 server_url = "http://"+domain_name+":8081"
+
 
 # Admin user credentials (must be an admin)
 admin_username = "admin"  # Replace with actual admin username
