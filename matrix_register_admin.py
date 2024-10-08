@@ -10,7 +10,6 @@ domain_name ="unifyhn.de" #remote
 
 # Synapse server details
 server_url = "http://"+domain_name+":8081"
-#server_url = "https://"+domain_name
 
 if domain_name == "localhost":
     shared_secret = "vr#+UUi6K:+xrJ0y2wO1GWp5#FkrHvSQ3hz.v0-ET=dq,M._Z2"  # local

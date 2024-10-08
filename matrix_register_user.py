@@ -4,7 +4,8 @@ import requests
 
 
 #domain_name ="localhost" #local
-domain_name ="85.215.118.180" #remote
+domain_name ="unifyhn.de" #remote
+#domain_name ="85.215.118.180" #remote
 
 # Synapse server details
 server_url = "http://"+domain_name+":8081"
@@ -13,11 +14,15 @@ if domain_name == "localhost":
     shared_secret = "vr#+UUi6K:+xrJ0y2wO1GWp5#FkrHvSQ3hz.v0-ET=dq,M._Z2"  # local
     admin_token = "syt_YWRtaW4_BoYmJTstrEpKiJlsyiCz_0KmfUR"  # local
 else:
-    shared_secret = ",D+V@s@p&eIjPy0Cp89=7*43_w;cUXOYIJ8e:6=U3rcM0:IUdw"  # remote
-    admin_token = "syt_YWRtaW4_IUidRwSYKEDruVSBYNXn_4HVIYN"  # remote
+    #shared_secret = ",D+V@s@p&eIjPy0Cp89=7*43_w;cUXOYIJ8e:6=U3rcM0:IUdw"  # remote 1
+    admin_token = "syt_YWRtaW4_IUidRwSYKEDruVSBYNXn_4HVIYN"  # remote 1
+
+    shared_secret = "PbBN~4qTF:hF:w@E*azkup+:@P4jxBr:^tfnyGFz:Jo8Y~i^g:"  # remote with domain name
+    admin_token = "syt_YWRtaW4_pDqKemFJfJAZRxQbDrKu_28RF6a"  # remote 1
+
 
 # Normal user details (ensure no domain part in the username)
-username = "alexander.jesser"  # Username without domain
+username = "rubayet.hasan"  # Username without domain
 password = "12345"  # Rregister_user.pyeplace with the desired password
 displayname = username  # Display name can be any string
 
