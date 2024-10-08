@@ -9,7 +9,7 @@ domain_name ="unifyhn.de" #remote
 #domain_name ="85.215.118.180" #remote
 
 # Synapse server details
-server_url = "https://"+domain_name+":8081"
+server_url = "http://"+domain_name+":8081"
 #server_url = "https://"+domain_name
 
 if domain_name == "localhost":
