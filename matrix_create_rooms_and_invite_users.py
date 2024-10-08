@@ -1,26 +1,27 @@
 import requests
 import json
 
-#domain_name = "localhost"  # local
-domain_name = "85.215.118.180"  # remote
+#domain_name ="localhost" #local
+domain_name ="unifyhn.de" #remote
+#domain_name ="85.215.118.180" #remote
 
 # Synapse server details
-server_url = "http://" + domain_name + ":8081"
+server_url = "http://"+domain_name+":8081"
 
 # User credentials
 username = "rubayet.hasan"  # Replace with actual username
 password = "12345"  # Replace with actual password
 
 # Room details
-room_name = "unifyhn-room-3"  # The desired room name
+room_name = "unifyhn-room-1"  # The desired room name
 room_topic = "This is a test room created via API"  # Room topic
 
 # Predefined list of users to be invited (Matrix user IDs)
 user_list = [
     "@markus.speidel:" + domain_name,
-    "@arpita.sarker:" + domain_name,
-    "@alexander.jesser:" + domain_name,
-    "@test.test:" + domain_name,
+    #"@arpita.sarker:" + domain_name,
+    #"@alexander.jesser:" + domain_name,
+    #"@test.test:" + domain_name,
 ]
 
 
