@@ -19,8 +19,8 @@ room_topic = "This is a test room created via API"  # Room topic
 # Predefined list of users to be invited (Matrix user IDs)
 user_list = [
     "@markus.speidel:" + domain_name,
-    #"@arpita.sarker:" + domain_name,
-    #"@alexander.jesser:" + domain_name,
+    "@arpita.sarker:" + domain_name,
+    "@alexander.jesser:" + domain_name,
     #"@test.test:" + domain_name,
 ]
 
