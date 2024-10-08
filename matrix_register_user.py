@@ -18,7 +18,7 @@ else:
     admin_token = "syt_YWRtaW4_IUidRwSYKEDruVSBYNXn_4HVIYN"  # remote 1
 
     shared_secret = "PbBN~4qTF:hF:w@E*azkup+:@P4jxBr:^tfnyGFz:Jo8Y~i^g:"  # remote with domain name
-    admin_token = "syt_YWRtaW4_pDqKemFJfJAZRxQbDrKu_28RF6a"  # remote 1
+    admin_token = "syt_YWRtaW4_pDqKemFJfJAZRxQbDrKu_28RF6a"  # remote 2
 
 
 # Normal user details (ensure no domain part in the username)
