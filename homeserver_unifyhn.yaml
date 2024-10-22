@@ -1,0 +1,62 @@
+enable_registration_without_verification: true
+enable_admin_api: true
+
+allow_public_rooms_without_auth: true
+allow_public_rooms_over_federation: true
+allow_guest_access: true  # Optional: allow guests to join rooms
+
+ratelimiting:
+  enabled: true
+
+rc_login:
+  per_second: 1000
+  burst_count: 1000
+
+rc_login_address:
+  per_second: 1000
+  burst_count: 1000
+
+rc_failed_login_attempts:
+  per_second: 1000
+  burst_count: 1000
+
+# Optionally, adjust other rate limits if necessary
+rc_message:
+  per_second: 1000
+  burst_count: 1000
+
+form_secret: 1P2e_Jb^KC8o5Fyj&CXVJwf#BhR-sLJ~dj1zFexQQLtoo.X1xh
+listeners:
+- bind_addresses:
+  - 0.0.0.0
+  #- ::
+  port: 8081
+  resources:
+  - compress: false
+    names:
+    - client
+    - federation
+  tls: false
+  type: http
+  x_forwarded: true
+log_config: /var/www/unifyhn_matrix/unifyhn.de.log.config
+macaroon_secret_key: A,sWt4lZiHGxTRmon6t9WEnD.ThV.9@50fF&xA_nH9My&-K12f
+media_store_path: /var/www/unifyhn_matrix/media_store
+pid_file: /var/www/unifyhn_matrix/homeserver.pid
+registration_shared_secret: 'PbBN~4qTF:hF:w@E*azkup+:@P4jxBr:^tfnyGFz:Jo8Y~i^g:'
+report_stats: false
+server_name: unifyhn.de
+signing_key_path: /var/www/unifyhn_matrix/unifyhn.de.signing.key
+trusted_key_servers:
+- server_name: matrix.org
+
+federation_domain_whitelist: []
+
+password_config:
+  enabled_algorithms:
+    - "argon2"
+  argon2_config:
+    # Reduce memory and iteration count for faster hashing (note: this reduces security)
+    memory_kib: 8192  # Default is 1048576
+    parallelism: 1
+    iterations: 2     # Default
