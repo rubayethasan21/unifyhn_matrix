@@ -30,29 +30,24 @@
    cd unifyhn_matrix
    ```
 
-2. **Install the Required Dependencies**:
+2. **Setup the initaial project, installing and running Matrix Server by running a setup.sh file**:
    ```bash
-   pip install -r requirements.txt
+   chmod +x setup.sh
+   ./setup.sh
    ```
 
-3. **Set Up Environment Variables**:
+3. **Matrix server configuration**:
    Configure the following environment variables to connect with the Matrix Synapse server:
-   - `MATRIX_SERVER_URL`: The base URL of your Matrix Synapse server (e.g., `https://unifyhn.de`).
-   - `MATRIX_ADMIN_USER_ID`: The user ID for the Matrix server admin account.
-   - `MATRIX_ADMIN_ACCESS_TOKEN`: The access token for the admin user to manage Matrix rooms.
+   - Update homeserver.yaml file as the configuration written in the homeserver_unifyhn.yaml file
+   
 
-   Example:
+
+4. **Re Start the Matrix Server**:
    ```bash
-   export MATRIX_SERVER_URL="https://unifyhn.de"
-   export MATRIX_ADMIN_USER_ID="@admin:unifyhn.de"
-   export MATRIX_ADMIN_ACCESS_TOKEN="your-access-token"
+   synctl restart
+   synctl start
+   synctl stop
    ```
-
-4. **Start the Matrix Integration Service**:
-   ```bash
-   python matrix_integration_service.py
-   ```
-
 5. **Verify the Server Status**:
    Ensure that your Matrix Synapse server is running properly and that the integration service can communicate with it.
 
@@ -61,13 +56,6 @@
 - **Automatic Room Creation**: Once the integration service is running, it listens for requests from the **HNUnisync** application to create and manage Matrix rooms.
 - **User Invitations**: Students enrolled in ILIAS courses are automatically invited to the respective Matrix rooms.
 - **Join Matrix Rooms**: Students and instructors can use their preferred Matrix-based messaging applications (e.g., **Element**, **FluffyChat**) to join the rooms and engage in discussions.
-
-## Troubleshooting
-
-- If you encounter issues with room creation or user invitations, ensure that:
-  - The environment variables are correctly set.
-  - The Matrix Synapse server is up and running.
-  - The `MATRIX_ADMIN_USER_ID` and `MATRIX_ADMIN_ACCESS_TOKEN` have the required permissions.
 
 ## Contributing
 
@@ -78,10 +66,6 @@ Contributions are welcome! To contribute to the project, please follow these ste
 3. **Make your changes** and **commit them** (`git commit -m 'Add a new feature'`).
 4. **Push the branch** to your fork (`git push origin feature-name`).
 5. **Submit a pull request** to the `main` branch of the original repository.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Contact
 
