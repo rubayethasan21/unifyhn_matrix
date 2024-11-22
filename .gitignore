@@ -27,6 +27,8 @@ media_store/
 # Configuration files (contains secrets)
 homeserver.yaml
 
+homeserver_unifyhn.yaml
+
 # Log files
 *.log
 *.log.*
