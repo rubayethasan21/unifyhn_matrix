@@ -29,6 +29,8 @@ homeserver.yaml
 
 homeserver_unifyhn.yaml
 
+restart_matrix.sh
+
 # Log files
 *.log
 *.log.*
