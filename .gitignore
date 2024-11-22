@@ -30,6 +30,7 @@ homeserver.yaml
 # Log files
 *.log
 *.log.*
+
 # Temporary files
 *.tmp
 *.swp
